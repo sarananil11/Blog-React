@@ -37,7 +37,8 @@ const Login = () => {
     try {
       console.log('Attempting login with:', data.email)
 
-      const response = await axios.get('http://localhost:3001/users', {
+      // ✅ FIXED: localhost → Vercel API
+      const response = await axios.get('/api/users', {
         params: { email: data.email }
       })
 
@@ -48,13 +49,11 @@ const Login = () => {
       if (user && user.password === data.password) {
         console.log('Login successful for:', user.email)
         
-        // ✅ FIXED: Dispatch first, THEN localStorage
         dispatch(loginSuccess({
           user: { id: user.id, name: user.name, email: user.email },
           token: `token-${user.id}-${Date.now()}`
         }))
         
-        // ✅ FIXED: NOW 'user' is defined here
         localStorage.setItem('user', JSON.stringify({
           id: user.id,
           name: user.name,

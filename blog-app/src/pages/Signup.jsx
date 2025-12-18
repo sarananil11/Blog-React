@@ -6,13 +6,6 @@ import { useNavigate, Link } from 'react-router-dom'
 import axios from 'axios'
 import { Container, Row, Col, Card, Form, Button, Alert, Spinner } from 'react-bootstrap'
 
-localStorage.setItem('user', JSON.stringify({
-    id: newUser.id,
-    name: newUser.name,
-    email: newUser.email
-}))
-
-
 const schema = yup.object({
     name: yup.string().min(2, 'Name must be at least 2 characters').required('Name is required'),
     email: yup.string().email('Please enter a valid email').required('Email is required'),
@@ -34,8 +27,8 @@ const Signup = () => {
         setError('')
 
         try {
-            // 1. Check if user exists
-            const users = await axios.get('http://localhost:3001/users')
+            // 1. Check if user exists ✅ VERCEL API
+            const users = await axios.get('/api/users')
             const userExists = users.data.find(user => user.email === data.email)
 
             if (userExists) {
@@ -44,7 +37,7 @@ const Signup = () => {
                 return
             }
 
-            // 2. Create user
+            // 2. Create user ✅ VERCEL API
             const newUser = {
                 id: Date.now(),
                 name: data.name,
@@ -53,9 +46,9 @@ const Signup = () => {
                 joined: new Date().toISOString().split('T')[0]
             }
 
-            await axios.post('http://localhost:3001/users', newUser)
+            await axios.post('/api/users', newUser)
 
-            // 3. BYPASS REDUX - Direct localStorage + redirect
+            // 3. Direct localStorage + redirect ✅ WORKS EVERYWHERE
             localStorage.setItem('token', `user-${newUser.id}`)
             localStorage.setItem('user', JSON.stringify(newUser))
 
@@ -143,9 +136,9 @@ const Signup = () => {
                                     </Form.Control.Feedback>
                                 </Form.Group>
 
-                                <Button
-                                    variant="primary"
-                                    type="submit"
+                                <Button 
+                                    variant="primary" 
+                                    type="submit" 
                                     className="w-100 py-3 fw-semibold shadow-lg"
                                     disabled={loading}
                                 >
