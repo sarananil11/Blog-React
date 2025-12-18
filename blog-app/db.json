@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": 1766071598482,
+      "name": "saran",
+      "email": "saran@gmail.com",
+      "password": "12345678",
+      "joined": "2025-12-18"
+    },
+    {
+      "id": 1766072270432,
+      "name": "Rithika",
+      "email": "Rithika@gmail.com",
+      "password": "Rithika123!",
+      "joined": "2025-12-18"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "73cb",
+      "title": "Hindi songs",
+      "content": "I like Hindi songs. Especially those which is sung by Shreya Ghoshal",
+      "author": "Rithika",
+      "ownerId": 1766072270432,
+      "ownerEmail": "Rithika@gmail.com"
+    },
+    {
+      "title": "Edited",
+      "content": " editededitededitededitededitededitededitededitededitededitededitededitededitededitededitededitededitededitededitededited",
+      "author": "Rithika rithu",
+      "ownerId": 1766072270432,
+      "ownerEmail": "Rithika@gmail.com",
+      "date": "2025-12-18",
+      "id": "1dbd"
+    },
+    {
+      "id": "f4c1",
+      "title": "Football",
+      "content": "xfcgvhbnjdfghjnkcfgvhbjngvhbjnkml",
+      "author": "saran",
+      "ownerId": 1766071598482,
+      "ownerEmail": "saran@gmail.com",
+      "date": "2025-12-18"
+    },
+    {
+      "id": "805c",
+      "title": "Football",
+      "content": "xfcgvhbnjdfghjnkcfgvhbjngvhbjnkmlsdrtfyguhiufghuij",
+      "author": "saran",
+      "ownerId": 1766071598482,
+      "ownerEmail": "saran@gmail.com",
+      "date": "2025-12-18"
+    }
+  ]
+}
