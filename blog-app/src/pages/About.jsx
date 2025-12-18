@@ -1,6 +1,6 @@
 const About = () => (
   <div className="text-center py-20">
-    <h1 className="text-5xl fw-bold mb-6 text-gray-800">About BlogHub</h1>
+    <h1 style={{color:"indigo", fontFamily:"ui-rounded"}} className="text-5xl fw-bold mb-6 text-gray-800">About BlogHub</h1>
     <p style={{ textAlign: "justify" }} className="lead text-xl text-gray-600 max-w-3xl mx-auto">
       Welcome to our blog — a space created to share ideas, stories, and knowledge that inspire, inform, and connect people from all walks of life. We believe that words have the power to spark curiosity, encourage growth, and create meaningful conversations. This blog is our way of contributing thoughtful content to the digital world.
 

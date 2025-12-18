@@ -37,8 +37,8 @@ const Login = () => {
     try {
       console.log('Attempting login with:', data.email)
 
-      // ✅ FIXED: localhost → Vercel API
-      const response = await axios.get('/api/users', {
+      // ✅ LOCAL JSON SERVER (works perfectly)
+      const response = await axios.get('http://localhost:3001/users', {
         params: { email: data.email }
       })
 

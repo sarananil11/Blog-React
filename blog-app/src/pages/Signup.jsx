@@ -27,8 +27,8 @@ const Signup = () => {
         setError('')
 
         try {
-            // 1. Check if user exists ✅ VERCEL API
-            const users = await axios.get('/api/users')
+            // 1. Check if user exists ✅ LOCAL JSON SERVER
+            const users = await axios.get('http://localhost:3001/users')
             const userExists = users.data.find(user => user.email === data.email)
 
             if (userExists) {
@@ -37,7 +37,7 @@ const Signup = () => {
                 return
             }
 
-            // 2. Create user ✅ VERCEL API
+            // 2. Create user ✅ LOCAL JSON SERVER
             const newUser = {
                 id: Date.now(),
                 name: data.name,
@@ -46,9 +46,9 @@ const Signup = () => {
                 joined: new Date().toISOString().split('T')[0]
             }
 
-            await axios.post('/api/users', newUser)
+            await axios.post('http://localhost:3001/users', newUser)
 
-            // 3. Direct localStorage + redirect ✅ WORKS EVERYWHERE
+            // 3. Direct localStorage + redirect ✅ WORKS LOCALLY
             localStorage.setItem('token', `user-${newUser.id}`)
             localStorage.setItem('user', JSON.stringify(newUser))
 
